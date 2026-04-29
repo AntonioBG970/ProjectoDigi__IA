@@ -1,5 +1,4 @@
-- INSTRUCCIONES -
-
+- INSTRUCCIONES
 Para poder utilizarlo debes tener instalado lo siguiente:
 
 Python 3.12
