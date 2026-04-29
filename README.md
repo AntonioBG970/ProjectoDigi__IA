@@ -7,3 +7,20 @@ Para poder utilizarlo debes tener instalado lo siguiente:
 - Scikit-learn
 
 Si no, te dará errores y no podrás ejecutarlo por falta de paquetes.
+
+Estos son los comandos que debes escribir para instalar cada uno.
+
+- Python (PIP incluido):
+
+winget install Python.Python.3
+
+
+- Scikit-learn
+
+pip install scikit-learn
+
+Para comprobar si se han instalado escribe esto:
+
+python --version
+
+pip --version
