@@ -1,10 +1,9 @@
-- INSTRUCCIONES
+=== INSTRUCCIONES ===
+
 Para poder utilizarlo debes tener instalado lo siguiente:
 
-Python 3.12
+- Python 3.12
+- PIP 26.1
+- Scikit-learn
 
-PIP 26.1
-
-Scikit-learn
-
-Si no, te dará errores.
+Si no, te dará errores y no podrás ejecutarlo por falta de paquetes.
