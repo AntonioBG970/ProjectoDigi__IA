@@ -12,7 +12,7 @@ Estos son los comandos que debes escribir para instalar cada uno.
 
 - Python (PIP incluido):
 
-winget install Python.Python.3
+winget install Python.Python.3 (o en su página web https://www.python.org/downloads/)
 
 
 - Scikit-learn
