@@ -1,6 +1,7 @@
 # Librerias importadas
 import numpy as np
 import pandas as pd
+import matplotlib as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
@@ -63,6 +64,37 @@ print(f"Precisión del modelo: {accuracy:.2f}")
 
 print("\nInforme de la clasificación:")
 print(classification_report(y_test, y_pred))
+
+# Separar clientes que compran y no compran
+compran = df[df["Compra"] == 1]
+no_compran = df[df["Compra"] == 0]
+
+# Crear ventana del gráfico
+plt.figure(figsize=(10,6))
+
+# Clientes que NO compran
+plt.scatter(
+    no_compran["Ingresos"],
+    no_compran["Visitas_Web"],
+    label="No Compra"
+)
+
+# Clientes que SÍ compran
+plt.scatter(
+    compran["Ingresos"],
+    compran["Visitas_Web"],
+    label="Compra"
+)
+
+# Configuración del gráfico
+plt.xlabel("Ingresos")
+plt.ylabel("Visitas Web")
+plt.title("Clientes que compran y no compran")
+plt.legend()
+plt.grid(True)
+
+# Mostrar gráfico
+plt.show()
 
 # Probar con nuevos clientes
 clientes = {
