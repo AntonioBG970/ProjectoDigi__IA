@@ -66,10 +66,25 @@ print(classification_report(y_test, y_pred))
 
 # Probar con nuevos clientes
 clientes = {
-    "Cliente A": [[35, 65000, 10, 3]],
-    "Cliente B": [[23, 20000, 1, 0]],
-    "Cliente C": [[42, 85000, 14, 5]],
-    "Cliente D": [[28, 30000, 2, 0]]
+    "Cliente A": pd.DataFrame(
+        [[35, 65000, 10, 3]],
+        columns=["Edad", "Ingresos", "Visitas_Web", "Compras_Previas"]
+    ),
+
+    "Cliente B": pd.DataFrame(
+        [[23, 20000, 1, 0]],
+        columns=["Edad", "Ingresos", "Visitas_Web", "Compras_Previas"]
+    ),
+
+    "Cliente C": pd.DataFrame(
+        [[42, 85000, 14, 5]],
+        columns=["Edad", "Ingresos", "Visitas_Web", "Compras_Previas"]
+    ),
+
+    "Cliente D": pd.DataFrame(
+        [[28, 30000, 2, 0]],
+        columns=["Edad", "Ingresos", "Visitas_Web", "Compras_Previas"]
+    )
 }
 
 print("===== Predicciones Individuales =====")
