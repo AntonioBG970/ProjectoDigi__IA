@@ -1,43 +1,48 @@
 # Librerias importadas
 import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
-# Creacion de datos
-#[edad, ingresos, visitas web, compras previas]
-X = np.array([
-    [18, 18000, 1, 0],
-    [20, 20000, 2, 0],
-    [22, 22000, 3, 0],
-    [24, 25000, 3, 0],
-    [26, 27000, 4, 1],
-    [28, 30000, 5, 1],
-    [30, 35000, 6, 1],
-    [32, 40000, 7, 2],
-    [34, 45000, 8, 2],
-    [36, 50000, 9, 2],
-    [38, 60000, 10, 3],
-    [40, 65000, 11, 3],
-    [42, 70000, 12, 3],
-    [44, 75000, 13, 4],
-    [46, 80000, 14, 4],
-    [48, 85000, 15, 4],
-    [50, 90000, 16, 5],
-    [29, 32000, 4, 0],
-    [27, 28000, 3, 0],
-    [33, 42000, 6, 1],
-    [37, 55000, 9, 2],
-    [41, 62000, 10, 3],
-    [23, 21000, 2, 0],
-    [31, 38000, 5, 1],
-    [45, 78000, 13, 4]
-])
+# Datos de los clientes
+datos = {
+    "Edad": [18,20,22,24,26,28,30,32,34,36,
+              38,40,42,44,46,48,50,29,27,33,
+              37,41,23,31,45],
+
+    "Ingresos": [18000,20000,22000,25000,27000,
+                 30000,35000,40000,45000,50000,
+                 60000,65000,70000,75000,80000,
+                 85000,90000,32000,28000,42000,
+                 55000,62000,21000,38000,78000],
+
+    "Visitas_Web": [1,2,3,3,4,5,6,7,8,9,
+                    10,11,12,13,14,15,16,4,
+                    3,6,9,10,2,5,13],
+
+    "Compras_Previas": [0,0,0,0,1,1,1,2,2,2,
+                        3,3,3,4,4,4,5,0,0,1,
+                        2,3,0,1,4],
 
 #0 = No Compra | 1 = Compra
-y = np.array([
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1
-])
+    "Compra": [0,0,0,0,0,0,0,0,0,0,
+               1,1,1,1,1,1,1,0,0,1,
+               1,1,0,1,1]
+}
+
+# Creación del DataFrame
+df = pd.DataFrame(datos)
+
+# Mostrar dataset
+print("===== DATASET DE CLIENTES =====")
+print(df)
+
+# Variables de entrada
+X = df[["Edad", "Ingresos", "Visitas_Web", "Compras_Previas"]]
+
+# Variable objetivo
+y = df["Compra"]
 
 # División de datos
 X_train, X_test, y_train, y_test = train_test_split(
@@ -53,7 +58,7 @@ y_pred = model.predict(X_test)
 
 # Evaluación del modelo
 accuracy = accuracy_score(y_test, y_pred)
-print("----- Resultados del Modelo -----")
+print("===== Resultados del Modelo =====")
 print(f"Precisión del modelo: {accuracy:.2f}")
 
 print("\nInforme de la clasificación:")
@@ -67,7 +72,7 @@ clientes = {
     "Cliente D": [[28, 30000, 2, 0]]
 }
 
-print("Predicciones Individuales")
+print("===== Predicciones Individuales =====")
 
 for nombre, datos in clientes.items():
     prediccion = model.predict(datos)[0]
